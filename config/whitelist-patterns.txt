@@ -1,0 +1,10 @@
+
+#Repositories
+Unitato/AWSSomething
+
+#Users
+Slack
+
+#Patterns
+
+#File Extensions

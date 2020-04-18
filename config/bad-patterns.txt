@@ -1,0 +1,75 @@
+
+
+#Putty-RSA-KEY-2048/1024 ppk
+PuTTY-User-Key-File-2: ssh-rsa\sEncryption
+#Putty-DSS-KEY-2048/1024 ppk
+PuTTY-User-Key-File-2: ssh-dss\sEncryption
+
+
+BEGIN RSA PRIVATE KEY
+#[a-zA-Z0-9+\/=\s]*END RSA PRIVATE KEY
+BEGIN PRIVATE KEY
+#[a-zA-Z0-9+\/=\s]*END PRIVATE KEY
+BEGIN CERTIFICATE
+#[a-zA-Z0-9+\/=\s]*END CERTIFICATE
+BEGIN PGP PRIVATE KEY BLOCK
+#[a-zA-Z0-9+\/=\s]*END PGP PRIVATE KEY BLOCK
+
+#SSHv1 KEY
+#SSH\sPRIVATE\sKEY\sFILE\sFORMAT\s1\.1
+
+
+### AWS Specific strings are added by git secrets --register-aws --global command
+# 1. AWS Access Key IDs via (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+# 2. AWS Secret Access Key assignments via ":" or "=" surrounded by optional quotes
+# 3. AWS account ID assignments via ":" or "=" surrounded by optional quotes
+# 4. Allowed patterns for example AWS keys (AKIAIOSFODNN7EXAMPLE and wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY)
+# 5. Known credentials from ~/.aws/credentials
+
+# GCP Specific
+AIza.{35}
+private_key\s*('|")*(=|:)\s*.+$
+
+#Git Specific
+git_token\s*('|")*(=|:)\s*.+$
+git_key\s*('|")*(=|:)\s*.+$
+[g|G][i|I][t|T][h|H][u|U][b|B].*['|"][0-9a-zA-Z]{35,40}['|"]
+
+#Slack Token
+(xox[p|b|o|a]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32})
+#"Slack Webhook": "
+https://hooks.slack.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}
+
+#Facebook Oauth
+[f|F][a|A][c|C][e|E][b|B][o|O][o|O][k|K].*['|"][0-9a-f]{32}['|"]
+
+#Twitter Oauth
+[t|T][w|W][i|I][t|T][t|T][e|E][r|R].*['|"][0-9a-zA-Z]{35,44}['|"]
+
+#Heroku API
+[h|H][e|E][r|R][o|O][k|K][u|U].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}
+
+
+#Other Secrets
+#password\s*('|")*(=|:)\s*.+$
+api_token\s*('|")*(=|:)\s*.+$
+key_id\s*('|")*(=|:)\s*.+$
+token\s*('|")*(=|:)\s*.+$
+token_api\s*('|")*(=|:)\s*.+$
+#secret\s*('|")*(=|:)\s*.+$
+#secret_key\s*('|")*(=|:)\s*.+$
+private_key_id\s*('|")*(=|:)\s*.+$
+
+# "Generic Secret": "
+[s|S][e|E][c|C][r|R][e|E][t|T].*['|"][0-9a-zA-Z]{32,45}['|"]
+# "Generic API Key": "
+[a|A][p|P][i|I][_]?[k|K][e|E][y|Y].*['|"][0-9a-zA-Z]{32,45}['|"]
+[k|K][e|E][y|Y].*['|"][0-9a-zA-Z]{32,45}['|"]
+
+#"Google (GCP) Service-account": "\"
+#type\": \"service_account\""
+
+#Twilio API Key": "
+SK[a-z0-9]{32}
+#Password in URL": "
+#[a-zA-Z]{3,10}://[^/\\s:@]{3,20}:[^/\\s:@]{3,20}@.{1,100}["'\s]
